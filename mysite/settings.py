@@ -78,12 +78,29 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+DATABASE_URL = "postgresql://postgres:kSzrKXQB7RVprocucTLG@containers-us-west-168.railway.app:5525/railway"
+PGDATABASE = "railway"
+PGHOST = "containers-us-west-168.railway.app"
+PGPASSWORD = "kSzrKXQB7RVprocucTLG"
+PGPORT = 5523
+PGUSER = "postgres"
+
+
+
+
+
+
+
+import os
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "blog",
-        "USER" : "blog",
-        "PASSWORD":"2325"
+        'URL': os.getenv('DATABASE_URL'),
+        'NAME': os.getenv('PGDATABASE'),
+        'USER': os.getenv('PGUSER'),
+        'PASSWORD': os.getenv('PGPASSWORD'),
+        'HOST': os.getenv('PGHOST'),
+        'PORT': os.getenv(PGPORT),
     }
 }
 
