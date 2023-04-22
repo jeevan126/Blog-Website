@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-%p&xd23#ck6$g@a0xx#m@&qj3&ceijt_$(cof_d6etl3@&!@w4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['my-blog-rho-ivory.vercel.app']
+ALLOWED_HOSTS = []
 
 SITE_ID = 1
 # Application definition
@@ -78,29 +78,12 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASE_URL = "postgresql://postgres:kSzrKXQB7RVprocucTLG@containers-us-west-168.railway.app:5525/railway"
-PGDATABASE = "railway"
-PGHOST = "containers-us-west-168.railway.app"
-PGPASSWORD = "kSzrKXQB7RVprocucTLG"
-PGPORT = 5523
-PGUSER = "postgres"
-
-
-
-
-
-
-
-import os
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        'URL': os.getenv('DATABASE_URL'),
-        'NAME': os.getenv('PGDATABASE'),
-        'USER': os.getenv('PGUSER'),
-        'PASSWORD': os.getenv('PGPASSWORD'),
-        'HOST': os.getenv('PGHOST'),
-        'PORT': os.getenv(PGPORT),
+        "NAME": "blog",
+        "USER" : "blog",
+        "PASSWORD":"2325"
     }
 }
 
